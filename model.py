@@ -9,5 +9,6 @@ class LeNet(nn.Module):
         super(LeNet, self).__init__()
         self.c1 = nn.Conv2d(1, 6, 5,padding=2)
         self.sig = nn.Sigmoid()
-        self.c2=nn.Conv2d(6, 16, 5,padding=2)
+        self.s2 = nn.AvgPool2d(2,2)
+        self.c2 = nn.Conv2d(1, 6, 5, padding=2)
 
