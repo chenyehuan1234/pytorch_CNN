@@ -27,4 +27,7 @@ class LeNet(nn.Module):
         x = self.f5(x)
         x = self.f6(x)
         x = self.f7(x)
+        return x
 
+if __name__ == "__main__":
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
