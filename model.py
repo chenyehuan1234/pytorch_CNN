@@ -15,4 +15,9 @@ class LeNet(nn.Module):
 
         self.flatten = nn.Flatten()  #展平
         self.f5 = nn.Linear(16*5*5, 120)
+        self.f5 = nn.Linear(120, 84)
+        self.f5 = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = F.relu(self.c1(x))
 
