@@ -14,9 +14,9 @@ class LeNet(nn.Module):
         self.s4 = nn.AvgPool2d(2, 2)
 
         self.flatten = nn.Flatten()  #展平
-        self.f5 = nn.Linear(16*5*5, 120)
-        self.f5 = nn.Linear(120, 84)
-        self.f5 = nn.Linear(84, 10)
+        self.f5 = nn.Linear(400, 120)
+        self.f6 = nn.Linear(120, 84)
+        self.f7 = nn.Linear(84, 10)
 
     def forward(self, x):
         x = self.sig(self.c1(x))
@@ -31,4 +31,5 @@ class LeNet(nn.Module):
 
 if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(device)
+    model = LeNet().to(device)
+    print(summary(model, input_size=(1, 28, 28)))
