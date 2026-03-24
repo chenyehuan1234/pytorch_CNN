@@ -19,5 +19,12 @@ class LeNet(nn.Module):
         self.f5 = nn.Linear(84, 10)
 
     def forward(self, x):
-        x =
+        x = self.sig(self.c1(x))
+        x = self.s2(x)
+        x = self.sig(self.c3(x))
+        x = self.s4(x)
+        x = self.flatten(x)
+        x = self.f5(x)
+        x = self.f6(x)
+        x = self.f7(x)
 
