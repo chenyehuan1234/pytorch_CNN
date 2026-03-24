@@ -10,5 +10,9 @@ class LeNet(nn.Module):
         self.c1 = nn.Conv2d(1, 6, 5,padding=2)
         self.sig = nn.Sigmoid()
         self.s2 = nn.AvgPool2d(2,2)
-        self.c2 = nn.Conv2d(1, 6, 5, padding=2)
+        self.c3 = nn.Conv2d(6, 16, 5)
+        self.s4 = nn.AvgPool2d(2, 2)
+
+        self.flatten = nn.Flatten()  #展平
+        self.f5 = nn.Linear(16*5*5, 120)
 
