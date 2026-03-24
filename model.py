@@ -19,5 +19,5 @@ class LeNet(nn.Module):
         self.f5 = nn.Linear(84, 10)
 
     def forward(self, x):
-        x = F.relu(self.c1(x))
+        x =
 
