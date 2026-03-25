@@ -4,8 +4,7 @@ from torchvision.datasets import FashionMNIST
 from torchvision import transforms
 from model import LeNet
 
-
-def test_val_data_process():
+def test_data_process():
     test_data = FashionMNIST(root='./data',
                               train=False,
                               transform=transforms.Compose([transforms.Resize(size=28), transforms.ToTensor()]),
@@ -48,4 +47,7 @@ def test_model_process(model,test_dataloader):
 
 if __name__ == "__main__":
     model = LeNet()
-    model.load_state_dict(torch.load("./model/LeNet.pth"))
+    model.load_state_dict(torch.load("model.pth"))
+
+    test_dataloader = test_data_process()
+    test_model_process(model,test_dataloader)
